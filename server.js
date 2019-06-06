@@ -1,17 +1,17 @@
-const http = require('http');
+const app = require('./src/config/app-express');
 
 // server.js
 
-const ip = 'localhost';
 const port = 3000;
 
-http.createServer(function (req, resp) {
-    
-    let html = '';
-    
-    if (req.url == '/') {
-        html = `<html><body><a href="#">index</a></body></html>`;
-    }
-    
-    resp.end(html);
-}).listen(port, ip);
+app.listen(port, function(){
+    console.log(`server running`);
+})
+
+app.get('/', function(req, resp) {
+    resp.send('ok, but nothing here :/');
+});
+
+app.get('/list', function(req, resp) {
+    resp.send('list :)');
+});
