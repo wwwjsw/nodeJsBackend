@@ -1,4 +1,5 @@
 const list = require('../views/lists/list/list.marko');
+const db = require('../../config/database');
 
 module.exports = (app) => {
     app.get('/', function(req, resp) {
@@ -6,20 +7,8 @@ module.exports = (app) => {
     });
     
     app.get('/list', function(req, resp) {
-        resp.marko(
-            list,
-            {
-                items : [
-                    {
-                        id : 1,
-                        name : 'item1',
-                    },
-                    {
-                        id : 2,
-                        name : 'item2',
-                    }
-                ]
-            }
-        );
+        db.all('SELECT * FROM items', function(err, result) {
+            resp.marko(list, {items : result});
+        });
     });
 }
