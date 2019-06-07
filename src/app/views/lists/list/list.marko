@@ -3,16 +3,18 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <h1>list</h1>
+        <h1 style="text-align:center;">list</h1>
 
-        <table>
+        <table style="width:80%; margin-left: auto; margin-right: auto;">
             <tr>
                 <td>ID</td>
                 <td>NAME</td>
+                <td>PRICE</td>
             </tr>
             <tr for(item in data.items)>
                 <td>${item.id}</td>
                 <td>${item.name}</td>
+                <td>${item.price}</td>
             </tr>
         </table>
     </body>
