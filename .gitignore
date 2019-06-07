@@ -62,3 +62,6 @@ typings/
 
 #Marko generated files
 *marko.js
+
+#Sqlite3 generated Database
+data.db
