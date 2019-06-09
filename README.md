@@ -12,9 +12,7 @@ git clone https://github.com/wwwjsw/nodeJsBackend.git
 npm install
 ```
 
-3. Start Project
-```javascript
-node server.js
-// or
-nodemon server.js
+3. Start server
+```
+npm start
 ```
