@@ -1,5 +1,6 @@
 const list = require('../views/lists/list/list.marko');
 const db = require('../../config/database');
+const ItemDao = require('../infra/item-dao');
 
 module.exports = (app) => {
     app.get('/', function(req, resp) {
@@ -7,8 +8,15 @@ module.exports = (app) => {
     });
     
     app.get('/list', function(req, resp) {
-        db.all('SELECT * FROM items', function(err, result) {
-            resp.marko(list, {items : result});
-        });
+        const Item = new ItemDao(db);
+
+        Item.list()
+            .then(items => resp.marko(
+                list,
+                {
+                    items
+                }
+            ))
+            .catch(err => console.log(err));
     });
 }
