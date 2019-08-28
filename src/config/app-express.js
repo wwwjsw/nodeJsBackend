@@ -1,11 +1,15 @@
-require('marko/node-require').install();
-require('marko/express');
+require('marko/node-require').install()
+require('marko/express')
 
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
 
-const routes = require('../app/routes/routes');
+const bodyParser = require('body-parser')
 
-routes(app);
+app.use(bodyParser.urlencoded())
 
-module.exports = app;
+const routes = require('../app/routes/routes')
+
+routes(app)
+
+module.exports = app
