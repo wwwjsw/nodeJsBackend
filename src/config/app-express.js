@@ -6,7 +6,9 @@ const app = express()
 
 const bodyParser = require('body-parser')
 
-app.use(bodyParser.urlencoded())
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
 
 const routes = require('../app/routes/routes')
 
