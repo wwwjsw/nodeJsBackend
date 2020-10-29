@@ -2,7 +2,7 @@
   "name": "nodejsbackend",
   "version": "1.0.0",
   "description": "simple nodejs server",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js --ignore *.marko.js"
@@ -10,7 +10,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wwwjsw/nodeJsBackend.git"
-  },
+  },  
   "author": "guilherme henrique",
   "license": "ISC",
   "bugs": {
@@ -19,7 +19,7 @@
   "homepage": "https://github.com/wwwjsw/nodeJsBackend#readme",
   "dependencies": {
     "body-parser": "1.18.3",
-    "express": "4.16.3"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "nodemon": "1.18.4"
