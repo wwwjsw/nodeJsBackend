@@ -2,10 +2,11 @@
   "name": "nodejsbackend",
   "version": "1.0.0",
   "description": "simple nodejs server",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js --ignore *.marko.js"
+    "start": "node index.js",
+    "startDev": "nodemon index.js --ignore *.marko.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,9 @@
   },
   "homepage": "https://github.com/wwwjsw/nodeJsBackend#readme",
   "dependencies": {
+    "@google-cloud/language": "^4.2.0",
     "body-parser": "1.18.3",
-    "express": "4.16.3"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "nodemon": "1.18.4"

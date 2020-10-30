@@ -3,9 +3,10 @@
 // const ItemDao = require('../infra/item-dao')
 
 module.exports = (app) => {
-    app.get('/', function(req, resp) {
-        resp.send('ok, but nothing here :/')
-    })
+    app.get('/', (req, res) => {
+        const name = process.env.NAME || 'World';
+        res.send(`Hello ${name}!`);
+      });
     
     app.get('/search/:query', function(req, resp) {
         console.warn(req.body)
@@ -16,6 +17,13 @@ module.exports = (app) => {
         //         .catch(erro => console.log(erro))
     })
 
+    app.get('/googlecloud/:query', async function(req, resp) {
+        const { analyzeEntitiesOfText } = require('../cloud')
+        const result = await analyzeEntitiesOfText(req.params.query)
+        resp.send(JSON.stringify(result, null, 2));
+    })
+          
+    // })
     // app.get('/item/list', function(req, resp) {
     //     const Item = new ItemDao(db)
 
