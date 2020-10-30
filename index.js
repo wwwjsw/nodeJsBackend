@@ -1,7 +1,7 @@
 const app = require('./src/config/app-express');
 
-const port = 3000;
+const port = process.env.PORT || 8080;
 
-app.listen(port, function(){
-    console.log(`server running`);
-})
+app.listen(port, () => {
+  console.log(`helloworld: listening on port ${port}`);
+});
